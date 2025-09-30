@@ -21,9 +21,6 @@
       background: var(--bg);
       color: var(--text-dark);
       line-height:1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      scroll-behavior: smooth;
       padding-bottom:3rem;
     }
     .container{
@@ -74,8 +71,6 @@
       padding:2rem;
       margin-top:2rem;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      border:1px solid rgba(255,255,255,0.6);
-      scroll-margin-top:90px;
     }
     section h2{
       text-align:center;
@@ -84,93 +79,14 @@
       color: var(--accent);
       margin-bottom:1.5rem;
     }
-    .content p{
-      text-align:left;
-      color: var(--text-dark);
-      margin-bottom:1rem;
-    }
     .heart{
       text-align:center;
       font-size:2.5rem;
       color: var(--accent);
       animation: beat 1.4s infinite;
       margin-bottom:1rem;
-      display:block;
     }
-    @keyframes beat{
-      0%,100%{transform:scale(1)}
-      50%{transform:scale(1.2)}
-    }
-    .quote{
-      background: rgba(255,255,255,0.7);
-      padding:1rem;
-      border-radius:12px;
-      font-style:italic;
-      color:#7d2a3a;
-      margin-top:0.5rem;
-      line-height:1.6;
-    }
-    .timeline{
-      margin-top:1rem;
-      padding-left:0.6rem;
-    }
-    .timeline-item{
-      border-left:3px solid rgba(255,107,149,0.2);
-      padding-left:1.2rem;
-      margin-bottom:1rem;
-      position:relative;
-      transition:0.3s;
-    }
-    .timeline-item:hover{
-      background:rgba(255,107,149,0.05);
-      padding-left:1.3rem;
-    }
-    .timeline-item h3{margin-bottom:0.25rem; font-size:1.05rem}
-    .timeline-item p{color: var(--text-muted)}
-    .timeline-item::before{
-      content:"💞";
-      position:absolute;
-      left:-1.1rem;
-      top:0;
-    }
-    form label{display:block;font-weight:500;margin-top:0.6rem}
-    input, textarea{
-      width:100%;
-      padding:0.7rem;
-      margin-top:0.3rem;
-      border-radius:10px;
-      border:1px solid rgba(0,0,0,0.1);
-      font-size:1rem;
-      outline:none;
-      transition:0.2s;
-    }
-    input:focus, textarea:focus{border-color:var(--accent)}
-    textarea{min-height:120px;resize:vertical;}
-    .btn{
-      display:inline-block;
-      padding:0.65rem 1.2rem;
-      border-radius:50px;
-      background: var(--accent);
-      color:white;
-      font-weight:500;
-      border:none;
-      margin-top:1rem;
-      cursor:pointer;
-      transition: 0.2s ease;
-    }
-    .btn:hover{background:#ff85aa; transform:scale(1.05);}
-    #formResult{
-      margin-top:0.6rem;
-      display:inline-block;
-      padding:0.6rem 1rem;
-      border-radius:12px;
-      background: rgba(255,250,250,0.9);
-      color:#7d2a3a;
-      font-weight:600;
-      opacity:0;
-      transition:0.5s;
-    }
-    .showResult{opacity:1;}
+    @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
     .gallery{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -186,25 +102,6 @@
       cursor:pointer;
     }
     .gallery img:hover{transform:scale(1.05)}
-    audio, video{
-      width:100%;
-      max-width:400px;
-      border-radius:12px;
-      margin-top:0.5rem;
-      box-shadow:0 6px 18px rgba(0,0,0,0.06);
-      display:block;
-      margin-left:auto;
-      margin-right:auto;
-    }
-    .days{
-      margin-top:0.5rem;
-      display:inline-block;
-      padding:0.7rem 1rem;
-      border-radius:12px;
-      font-weight:600;
-      background: rgba(255,255,255,0.8);
-      color:#6a2540;
-    }
     footer{
       text-align:center;
       margin-top:2rem;
@@ -212,103 +109,73 @@
       font-size:0.95rem;
       padding-top:1rem;
     }
-    @media(max-width:600px){
-      header h1{font-size:3rem}
-      section{padding:1.5rem}
+    .link-love {
+      display:block;
+      text-align:center;
+      margin-top:1.5rem;
+      font-weight:600;
+      color:#ff4081;
+      text-decoration:none;
+      background:rgba(255,255,255,0.8);
+      padding:0.8rem 1.2rem;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+    .link-love:hover {
+      background:#ff85aa;
+      color:white;
+      transform:scale(1.05);
     }
   </style>
 </head>
 <body>
   <div class="container">
-
     <header>
       <h1>Özlem ❤️</h1>
       <p>Senii cookkk seviyorummm hayatıımmm birr taneemm</p>
       <nav>
         <a href="#hikaye">Hikayemiz</a>
         <a href="#galeri">Galeri</a>
-        <a href="#anilar">Anılar</a>
+        <a href="#video">Video</a>
         <a href="#mesaj">Mesaj</a>
         <a href="#ses">Ses</a>
-        <a href="#video">Video</a>
-        <a href="#gunler">Günler</a>
       </nav>
     </header>
 
     <section id="hikaye">
       <span class="heart">❤️</span>
       <h2>Bizim Hikayemiz</h2>
-      <div class="content">
-        <p>Aşk değildir güzel olan, Sensin aşkı güzel kılan. Gülüşünde en güzel çiçekleri solduran, Yüreğimdir baştan sona sen kokan.</p>
-        <div class="quote">"Bazen bir çift gözde ömür saklıdır; bakışlarıyla ruhumu okuyan, sessizliğiyle kalbime dokunan, varlığıyla içimde sonsuz bir bahar açtıran..." 🌸</div>
-      </div>
+      <p>Aşk değildir güzel olan, Sensin aşkı güzel kılan...</p>
     </section>
 
     <section id="galeri">
       <h2>📸 Bizim Karelerimiz</h2>
       <div class="gallery">
-        <img src="WhatsApp Görsel 2025-09-25 saat 12.20.36_486cca28.jpg" alt="Onur ve Özlem">
         <img src="özlem123.jpg" alt="Mutlu an">
-        <img src="özlemmm111.jpg" alt="Gülüşler">
-        <img src="WhatsApp Görsel 2025-09-28 saat 17.06.52_32d18b51.jpg" alt="Beraberlik">
-        <img src="WhatsApp Görsel 2025-09-28 saat 17.06.53_581a79ca.jpg" alt="Beraberlik">
         <img src="göz1.jpg" alt="Göz">
+        <img src="özlemmm111.jpg" alt="Gülüşler">
       </div>
-    </section>
-
-    <section id="anilar">
-      <h2>📜 Bizim Anılarımız</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <h3>İlk Gün</h3>
-          <p>İlk gün maç konuştukkk cok güzeldii iyikii senn bir tanemmmm 💕</p>
-        </div>
-        <div class="timeline-item">
-          <h3>🌙 Uzun Sohbetler</h3>
-          <p>Gece yarılarına kadar konuşmak, film, dizi izlemek.</p>
-        </div>
-        <div class="timeline-item">
-          <h3>🎁 Küçük Sürpriz</h3>
-          <p>Sen bana hayatın verdigi en güzel hediyseinn.</p>
-        </div>
-        <div class="timeline-item">
-          <h3>💖 Bugün</h3>
-          <p>Sayısıızz dizii izledikkk.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="mesaj">
-      <h2>💌 Özlem’e Mesaj Yaz</h2>
-      <form id="loveForm">
-        <label for="name">İsim:</label>
-        <input id="name" placeholder="Adını yaz (isteğe bağlı)">
-        <label for="messageInput">Mesajın:</label>
-        <textarea id="messageInput" placeholder="Özlem'e birkaç güzel söz..."></textarea>
-        <button type="submit" class="btn">Mesajı Gönder 💖</button>
-      </form>
-      <div id="formResult"></div>
-    </section>
-
-    <section id="ses">
-      <h2>🎵 Hanımımın Sesi</h2>
-      <audio controls>
-        <source src="ses1.opus" type="audio/ogg">
-        Tarayıcınız audio elementini desteklemiyor.
-      </audio>
     </section>
 
     <section id="video">
       <h2>🎬 Kızımın Şarkı Performansı</h2>
       <video controls>
         <source src="video1.mp4" type="video/mp4">
-        Tarayıcınız video elementini desteklemiyor.
       </video>
     </section>
 
-    <section id="gunler">
-      <h2>❤️ Bizim Birlikte Geçen Günler</h2>
-      <div class="days" id="daysCount"></div>
+    <section id="mesaj">
+      <h2>💌 Özlem’e Mesaj Yaz</h2>
+      <p>Seninle konuşmak bile dünyanın en güzel şeyi 💕</p>
+      <a href="affet.html" class="link-love">💔 Özlem, bana kızgınsan... buraya tıkla 💞</a>
+    </section>
+
+    <section id="ses">
+      <h2>🎵 Hanımımın Sesi</h2>
+      <audio controls>
+        <source src="ses1.opus" type="audio/ogg">
+      </audio>
     </section>
 
     <footer>
@@ -317,36 +184,5 @@
       <p>© 2025 Onur & Özlem — Kalbimizde yazılı bir hikâye 💖</p>
     </footer>
   </div>
-
-  <script>
-    // Form mesajı
-    const form = document.getElementById('loveForm');
-    const result = document.getElementById('formResult');
-    form.addEventListener('submit', e=>{
-      e.preventDefault();
-      const name = document.getElementById('name').value||"Bir seven";
-      const msg = document.getElementById('messageInput').value.trim();
-      if(!msg){
-        result.textContent="Lütfen bir mesaj yaz 💌";
-      } else {
-        result.textContent = `${name} dedi ki: "${msg}" 💕`;
-        result.classList.add("showResult");
-        form.reset();
-        setTimeout(()=>result.classList.remove("showResult"),3000);
-      }
-    });
-
-    // Gün sayacı
-    const startDate = new Date("2025-03-17");
-    const daysCount = document.getElementById("daysCount");
-    function updateDays(){
-      const now = new Date();
-      const diff = now - startDate;
-      const days = Math.floor(diff/(1000*60*60*24));
-      daysCount.textContent = `💖 ${days} gün oldu! 💖`;
-    }
-    updateDays();
-    setInterval(updateDays, 1000*60*60);
-  </script>
 </body>
 </html>
