@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Özlem & Onur - Anılar 💜</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7f5fc5, #b083f6, #d9b3ff);
+    min-height: 100vh;
+    padding: 1rem;
+    color: #fff;
+  }
+
+  header {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 2rem;
+  }
+
+  .gallery img, .gallery video {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    object-fit: cover;
+  }
+
+  .gallery video {
+    aspect-ratio: 16/9;
+  }
+
+  section h2 {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #ffe6ff;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+  }
+
+  .back-btn {
+    display: inline-block;
+    margin: 1rem auto;
+    background: #9a4dff;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+
+  .back-btn:hover {
+    background: #c084ff;
+  }
+
+  @media(max-width:600px){
+    header h1 { font-size: 2.2rem; }
+    section h2 { font-size: 1.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bebegimm seninlee geçirdigimm sayısızz anılardann birii dahaa da coookk olucaklarrr</h1>
+  <p>Beraber oldugumuzz anılardan bir kısmı</p>
+  <a href="index.html" class="back-btn">🏠 Ana Sayfaya Dön</a>
+</header>
+
+ <section id="galeri">
+      <h2>📸 Bizim Karelerimiz</h2>
+      <div class="gallery">
+        <img src="112.jpg" alt="Onur ve Özlem">
+        <img src="113.jpg" alt="Mutlu an">
+        <img src="114.jpg" alt="Gülüşler">
+        <img src="göz1.jpg" alt="Göz">
+      </div>
+    </section>
+
+<section>
+  <h2>🎬 Videolar</h2>
+  <div class="gallery">
+    <video class="lightbox-video" src="AndroidEmulatorEn 2025.04.21 - 20.42.32.01.mp4" controls muted></video>
+    <video class="lightbox-video" src="202509261459 (1).mp4" controls muted></video>
+    <video class="lightbox-video" src="202509261459.mp4" controls muted></video>
+  </div>
+</section>
+
+<!-- Lightbox overlay -->
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); align-items:center; justify-content:center; z-index:1000;">
+  <video id="lightbox-video" controls style="max-width:90%; max-height:80%; border-radius:12px;"></video>
+</div>
+
+<script>
+  const videos = document.querySelectorAll('.lightbox-video');
+  const lightbox = document.getElementById('lightbox');
+  const lbVideo = document.getElementById('lightbox-video');
+
+  videos.forEach(v => {
+    v.addEventListener('click', () => {
+      lbVideo.src = v.src;      // Tıklanan videoyu yükle
+      lightbox.style.display = 'flex';
+      lbVideo.play();
+    });
+  });
+
+  // Lightbox tıklayınca kapanır
+  lightbox.addEventListener('click', (e) => {
+    if(e.target !== lbVideo){
+      lbVideo.pause();
+      lbVideo.currentTime = 0;
+      lightbox.style.display = 'none';
+      lbVideo.src = '';
+    }
+  });
+</script>
+
+<footer>
+  <p>© Özleme özel site</p>
+</footer>
+
+</body>
+</html>

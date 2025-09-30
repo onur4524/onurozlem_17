@@ -1,188 +1,309 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Özlem ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #ffe4ec;
-      --accent: #ff6b95;
-      --card-bg: rgba(255,255,255,0.85);
-      --text-dark: #222;
-      --text-muted: rgba(34,34,34,0.7);
-      --radius: 14px;
-      --max-width: 1000px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:'Poppins',sans-serif;
-      background: var(--bg);
-      color: var(--text-dark);
-      line-height:1.6;
-      padding-bottom:3rem;
-    }
-    .container{
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 1rem;
-    }
-    header{
-      text-align:center;
-      padding:2.5rem 1.5rem;
-      position: sticky;
-      top:0;
-      background: var(--bg);
-      z-index:1000;
-    }
-    header h1{
-      font-family:'Great Vibes', cursive;
-      font-size:3.8rem;
-      color: var(--accent);
-      margin-bottom:0.25rem;
-    }
-    header p{
-      font-size:1.1rem;
-      color: var(--text-muted);
-    }
-    nav{
-      margin-top:1rem;
-      display:flex;
-      justify-content:center;
-      gap:1rem;
-      flex-wrap:wrap;
-    }
-    nav a{
-      text-decoration:none;
-      color: var(--accent);
-      font-weight:500;
-      padding:0.4rem 0.8rem;
-      border-radius:50px;
-      transition:0.2s;
-    }
-    nav a:hover{
-      background:#ff85aa;
-      color:white;
-    }
-    section{
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding:2rem;
-      margin-top:2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    section h2{
-      text-align:center;
-      font-family:'Great Vibes', cursive;
-      font-size:2.4rem;
-      color: var(--accent);
-      margin-bottom:1.5rem;
-    }
-    .heart{
-      text-align:center;
-      font-size:2.5rem;
-      color: var(--accent);
-      animation: beat 1.4s infinite;
-      margin-bottom:1rem;
-    }
-    @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap:12px;
-    }
-    .gallery img{
-      width:100%;
-      aspect-ratio:1/1;
-      object-fit:cover;
-      border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease;
-      cursor:pointer;
-    }
-    .gallery img:hover{transform:scale(1.05)}
-    footer{
-      text-align:center;
-      margin-top:2rem;
-      color:var(--text-muted);
-      font-size:0.95rem;
-      padding-top:1rem;
-    }
-    .link-love {
-      display:block;
-      text-align:center;
-      margin-top:1.5rem;
-      font-weight:600;
-      color:#ff4081;
-      text-decoration:none;
-      background:rgba(255,255,255,0.8);
-      padding:0.8rem 1.2rem;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
-    .link-love:hover {
-      background:#ff85aa;
-      color:white;
-      transform:scale(1.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özlemim ❤️ Seni Çok Seviyorum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Değişkenleri */
+        :root {
+            --bg: #fff0f5; /* Hafif Pembe Arkaplan */
+            --accent: #ff4081; /* Canlı Pembe - Ana Renk */
+            --accent-dark: #b33b5b; /* Daha Koyu Pembe */
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --radius: 20px;
+            --max-width: 1100px;
+        }
+
+        /* Global Reset */
+        * {box-sizing: border-box; margin: 0; padding: 0;}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+        }
+
+        /* Düzen */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Başlık Alanı */
+        header {
+            text-align: center;
+            padding: 4rem 1.5rem 2rem;
+            /* Yapışkan header'ı kaldırdım, daha sade bir görünüm için */
+        }
+        header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        /* Navigasyon */
+        nav {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            background: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: 0.3s;
+            border: 2px solid var(--accent);
+        }
+        nav a:hover {
+            background: var(--accent);
+            color: var(--text-light);
+            transform: translateY(-2px);
+        }
+
+        /* Bölüm Yapısı */
+        section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-top: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+        section h2 {
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--accent-dark);
+            margin-bottom: 2rem;
+        }
+
+        /* Kalp Animasyonu */
+        .heart {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--accent);
+            animation: beat 1.4s infinite;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        @keyframes beat {0%, 100% {transform: scale(1)} 50% {transform: scale(1.15)}}
+
+        /* Aksiyon Kartları (Tüm önemli linkler ve ses burada) */
+        .action-cards {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobil: Tek sütun */
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Genel Kart Stili */
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: center;
+            color: white; /* Kart içindeki yazı rengi */
+        }
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        .action-card span {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .action-card small {
+            display: block;
+            margin-top: 5px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* Link 1: Anılar/Galeri */
+        .card-gallery {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+        /* Link 2: Özel Mesaj/Affet */
+        .card-message {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+        /* Ses Kartı */
+        .card-audio {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); /* Mavi-Turkuaz gradient */
+            padding: 1.5rem; /* Audio player sığsın diye küçültüldü */
+        }
+        .card-audio audio {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 15px;
+        }
+        .card-audio small {
+            margin-bottom: 10px;
+        }
+
+
+        /* Sayaç Stili */
+        #daysCount {
+            display: block;
+            margin: 1.5rem auto 0;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            background: var(--accent);
+            color: var(--text-light);
+            font-size: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: fit-content;
+        }
+        #daysCount span {
+            font-family: 'Poppins', monospace; /* Sayaç için biraz daha modern font */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            padding-top: 1rem;
+            opacity: 0.8;
+        }
+        footer h3 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--accent-dark);
+            font-size: 2rem;
+        }
+
+        /* Masaüstü Uyumu (768px ve üzeri) */
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 5.5rem;
+            }
+            .action-cards {
+                /* Masaüstü: Üç eşit sütun (Linkler ve Ses yan yana) */
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            section {
+                padding: 3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Özlem ❤️</h1>
-      <p>Senii cookkk seviyorummm hayatıımmm birr taneemm</p>
-      <nav>
-        <a href="#hikaye">Hikayemiz</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#video">Video</a>
-        <a href="#mesaj">Mesaj</a>
-        <a href="#ses">Ses</a>
-      </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Özlemim ❤️</h1>
+            <p>Senii cookkk seviyorummm hayatıımmm birr taneemm</p>
+            <nav>
+                <a href="#hikaye">Hikayemiz</a>
+                <a href="#aksiyonlar">Özel Alan</a>
+                <a href="#gunler">Gün Sayacı</a>
+            </nav>
+        </header>
 
-    <section id="hikaye">
-      <span class="heart">❤️</span>
-      <h2>Bizim Hikayemiz</h2>
-      <p>Aşk değildir güzel olan, Sensin aşkı güzel kılan...</p>
-    </section>
+        <section id="hikaye">
+            <span class="heart">❤️</span>
+            <h2>Bizim Tatlı Hikayemiz</h2>
+            <p style="text-align:center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+                Bizim hikayemiz **17 Mart 2025**'te başladı. O günden bu güne kadar sayısız sesli konuşmalarımız oldu, sayısız anılar biriktirdik ve seninle oldugum için cookk mutluyummm. İyikii varsınnn birtanemmmm, daha nicelerineee!
+            </p>
+        </section>
 
-    <section id="galeri">
-      <h2>📸 Bizim Karelerimiz</h2>
-      <div class="gallery">
-        <img src="özlem123.jpg" alt="Mutlu an">
-        <img src="göz1.jpg" alt="Göz">
-        <img src="özlemmm111.jpg" alt="Gülüşler">
-      </div>
-    </section>
+        <section id="aksiyonlar">
+            <h2>✨ Sana Özel Anlar</h2>
+            <div class="action-cards">
+                
+                <a href="Anılar.html" class="action-card card-gallery">
+                    <span>📸</span>
+                    Fotografları Görmek İçinnn Basss 💞
+                    <small>Tüm Anılarımız</small>
+                </a>
+                
+                <a href="affet.html" class="action-card card-message">
+                    <span>💌</span>
+                    Aşkıımmm Beni Sevdiğin İçin Basmalısınnn
+                    <small>Barişmak için</small>
+                </a>
+                
+                <div class="action-card card-audio">
+                    <span>🎧</span>
+                    Hanımımın Sesi
+                    <small>En Sevdiğim Ses!</small>
+                    <audio controls>
+                        <source src="ses1.opus" type="audio/ogg">
+                        Tarayıcınız ses dosyasını desteklemiyor.
+                    </audio>
+                </div>
+            </div>
+        </section>
 
-    <section id="video">
-      <h2>🎬 Kızımın Şarkı Performansı</h2>
-      <video controls>
-        <source src="video1.mp4" type="video/mp4">
-      </video>
-    </section>
+        <section id="gunler">
+            <span class="heart">⏳</span>
+            <h2>❤️ Birlikte Geçen Günler</h2>
+            <div id="daysCount"></div>
+        </section>
 
-    <section id="mesaj">
-      <h2>💌 Özlem’e Mesaj Yaz</h2>
-      <p>Seninle konuşmak bile dünyanın en güzel şeyi 💕</p>
-      <a href="affet.html" class="link-love">💔 Özlem, bana kızgınsan... buraya tıkla 💞</a>
-    </section>
+        <footer>
+            <h3>❤️ Onur & Özlem ❤️</h3>
+            <p>“Seninle olmak, her mevsimi bahara çevirmek gibi.”</p>
+            <p>***</p>
+            <p>© 2025 Onur & Özlem — Kalbimizde yazılı bir hikâye 💖</p>
+        </footer>
+    </div>
 
-    <section id="ses">
-      <h2>🎵 Hanımımın Sesi</h2>
-      <audio controls>
-        <source src="ses1.opus" type="audio/ogg">
-      </audio>
-    </section>
+<script>
+    // Başlangıç tarihi 2025-03-17 olarak ayarlandı.
+    const startDate = new Date("2025-03-17T00:00:00"); 
+    const daysCount = document.getElementById("daysCount");
 
-    <footer>
-      <h3 style="font-family:'Great Vibes',cursive;color:#b33b5b;">❤️ Onur & Özlem ❤️</h3>
-      <p>“Seninle olmak, her mevsimi bahara çevirmek gibi.”</p>
-      <p>© 2025 Onur & Özlem — Kalbimizde yazılı bir hikâye 💖</p>
-    </footer>
-  </div>
+    function updateDays(){
+        const now = new Date();
+        const diff = now - startDate; // milisaniye cinsinden fark
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24)); // milisaniyeyi güne çevir
+        
+        // Kalan saat, dakika, saniye hesaplama
+        const diffRemaining = diff % (1000 * 60 * 60 * 24);
+        const hours = Math.floor((diffRemaining / (1000 * 60 * 60)));
+        const minutes = Math.floor((diffRemaining / (1000 * 60)) % 60);
+        const seconds = Math.floor((diffRemaining / 1000) % 60);
+
+        // Detaylı Sayaç Gösterimi (Canlı ve etkileyici)
+        daysCount.innerHTML = `
+            <span style="display:block; font-size:2.5rem;">${days}</span> Gün<br>
+            <span style="font-size:1.2rem; font-weight:400;">${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}</span> 
+        `;
+    }
+
+    updateDays();
+    // Saniyede bir güncelleme ile canlı sayaç
+    setInterval(updateDays, 1000); 
+</script>
 </body>
 </html>

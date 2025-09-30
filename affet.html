@@ -24,11 +24,12 @@
 
   h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: #7b1332;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     text-align: center;
     animation: pulseText 2s infinite ease-in-out;
+    padding: 0 1rem;
   }
 
   @keyframes pulseText {
@@ -39,6 +40,7 @@
   .btn-area {
     position: relative;
     width: 100%;
+    max-width: 500px;
     height: 30vh;
     display: flex;
     align-items: center;
@@ -47,10 +49,10 @@
 
   button {
     border: none;
-    padding: 1rem 2.5rem;
+    padding: 1rem 2rem;
     border-radius: 12px;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     cursor: pointer;
     position: absolute;
     transition: all 0.3s ease;
@@ -58,104 +60,149 @@
 
   #yes {
     background: #2ecc71;
-    left: 45%;
+    left: 40%;
   }
 
   #no {
     background: #e74c3c;
-    left: 55%;
+    left: 60%;
   }
 
   /* Mesaj kısmı */
   .message {
     display: none;
-    position: absolute;
-    bottom: 15%;
-    width: 80%;
-    background: rgba(255, 255, 255, 0.7);
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 20px;
     text-align: center;
     font-family: 'Great Vibes', cursive;
     color: #7b1332;
-    font-size: 2rem;
+    font-size: 1.7rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     animation: fadeIn 1s ease forwards;
+    z-index: 10;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translate(-50%, 30px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
   }
 
   /* Kalpler */
   .heart {
     position: absolute;
     top: 100%;
-    font-size: 1.5rem;
-    opacity: 0.8;
-    animation: float 6s linear infinite;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    animation: float 7s linear forwards;
+    pointer-events: none;
   }
 
   @keyframes float {
     0% { transform: translateY(0) scale(1); opacity: 0.9; }
-    100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+    100% { transform: translateY(-120vh) scale(0.6); opacity: 0; }
+  }
+
+  /* Ana sayfa dön butonu */
+  .back-btn {
+    display: none;
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff7faa;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: background 0.3s ease;
+    z-index: 10;
+  }
+
+  .back-btn:hover { background: #ff99be; }
+
+  /* Mobil uyum */
+  @media (max-width: 600px) {
+    h1 { font-size: 2rem; margin-bottom: 1.5rem; }
+    button { padding: 0.8rem 1.5rem; font-size: 1.1rem; }
+    .message { font-size: 1.3rem; padding: 15px; width: 90%; }
+    #yes { left: 35%; }
+    #no { left: 65%; }
   }
 
 </style>
 </head>
 <body>
 
-<h1>💖 Özlem, beni affeder misin? 💖</h1>
+<h1>Askımmm minikkk esseginii affeder misinnn </h1>
 
 <div class="btn-area">
-  <button id="yes">Evet 💚</button>
-  <button id="no">Hayır 💔</button>
+  <button id="yes">tabiki kocacıgım</button>
+  <button id="no">HAYIR </button>
 </div>
 
 <div class="message" id="message">
-  💌 Beni affettiğin için çok teşekkür ederim Özlem...  
-  Senin gülüşün, kalbime yeniden bahar getirdi.  
-  Seni her şeyden çok seviyorum 💞  
+  💌Askımmm beni affettiginn içinn cookk teşekkurr ederimm senii cookkk seviyorumm.
+   seniiş üzdügüm içinde kocamannn özürr dilerimmm iyikii varsınnn sanaa sözz veriyorumm hiiçç ayrılmıycazz
   <br><br>— Onur 💖
 </div>
+
+<button class="back-btn" id="backBtn" onclick="window.location.href='index.html'">Ana sayfaya dön 💖</button>
 
 <script>
   const yes = document.getElementById('yes');
   const no = document.getElementById('no');
   const msg = document.getElementById('message');
-
+  const backBtn = document.getElementById('backBtn');
   const area = document.querySelector('.btn-area');
 
   // Hayır butonu kaçma olayı
-  no.addEventListener('mouseenter', () => {
+  let moving = false;
+  no.addEventListener('mouseenter', moveNoButton);
+  no.addEventListener('touchstart', moveNoButton);
+
+  function moveNoButton() {
+    if (moving) return;
+    moving = true;
     const areaRect = area.getBoundingClientRect();
-    const x = Math.random() * (areaRect.width - 100);
+    const x = Math.random() * (areaRect.width - 120);
     const y = Math.random() * (areaRect.height - 60);
     no.style.left = `${x}px`;
     no.style.top = `${y}px`;
-  });
+    setTimeout(() => moving = false, 300);
+  }
 
   // Evet tıklanınca mesaj gelsin
   yes.addEventListener('click', () => {
     msg.style.display = 'block';
+    backBtn.style.display = 'inline-block';
     yes.style.background = '#27ae60';
     yes.style.transform = 'scale(1.1)';
   });
 
-  // Kalpler oluştur
+  // Kalpler oluştur (optimize)
   function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
     heart.textContent = '💖';
     heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
-    heart.style.fontSize = (14 + Math.random() * 20) + 'px';
+    heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+    heart.style.fontSize = (12 + Math.random() * 18) + 'px';
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
+    setTimeout(() => heart.remove(), 10000);
   }
 
-  setInterval(createHeart, 300);
+  setInterval(createHeart, 600);
 </script>
 
 </body>
