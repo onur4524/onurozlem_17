@@ -3,206 +3,268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Özlem beni affeder misin?</title>
+<title>Beni affeder misin aşkımm?</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+    /* TEMEL RENKLER VE FONTLAR */
+    :root {
+        --pink-bg: #ffebee; 
+        --heart-color: #f44336; 
+        --yes-btn-bg: #4CAF50; 
+        --no-btn-bg: #f44336; 
+        --text-color-dark: #c2185b; 
+        --shadow-light: rgba(0,0,0,0.1);
+        --shadow-strong: rgba(0,0,0,0.25);
+        --text-dark: #333;
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-  body {
-    height: 100vh;
-    width: 100vw;
-    background: radial-gradient(circle at 50% 30%, #ffd8e8, #ffb6d9, #ff94c7);
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+    body {
+        background-color: var(--pink-bg);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif; 
+        position: relative;
+    }
 
-  h1 {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.4rem;
-    color: #7b1332;
-    margin-bottom: 2rem;
-    text-align: center;
-    animation: pulseText 2s infinite ease-in-out;
-    padding: 0 1rem;
-  }
+    h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 3.5rem;
+        color: var(--text-color-dark);
+        margin-bottom: 3rem;
+        text-align: center;
+        text-shadow: 1px 1px 0 #fff, 0 4px 10px rgba(0, 0, 0, 0.4); 
+        z-index: 2;
+        padding: 0 10px;
+    }
 
-  @keyframes pulseText {
-    0%, 100% { transform: scale(1); color: #7b1332; }
-    50% { transform: scale(1.05); color: #d12a5c; }
-  }
+    .btn-area {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: 150px;
+        z-index: 2;
+    }
 
-  .btn-area {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    height: 30vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    button {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.5rem;
+        font-weight: 700; 
+        color: white;
+        cursor: pointer;
+        transition: transform 0.2s ease-out, background-color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 10px var(--shadow-light);
+        min-width: 150px;
+        position: absolute;
+        font-family: 'Poppins', sans-serif;
+    }
 
-  button {
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    color: white;
-    font-size: 1.3rem;
-    cursor: pointer;
-    position: absolute;
-    transition: all 0.3s ease;
-  }
+    /* Butonların üzerine gelindiğinde büyüme */
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px var(--shadow-strong);
+    }
 
-  #yes {
-    background: #2ecc71;
-    left: 40%;
-  }
+    #yes {
+        background-color: var(--yes-btn-bg);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* Tam merkezleme */
+        z-index: 5;
+    }
+    #yes:hover {
+        background-color: #4CAF50;
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+    }
 
-  #no {
-    background: #e74c3c;
-    left: 60%;
-  }
+    /* HAYIR BUTONU */
+    #no {
+        background-color: var(--no-btn-bg);
+        left: 50%;
+        top: 50%;
+        transform: translate(50%, -50%); /* Başlangıç pozisyonu */
+        box-shadow: 0 4px 10px rgba(255, 107, 107, 0.4);
+    }
+    #no:hover {
+        background-color: #f44336;
+    }
 
-  /* Mesaj kısmı */
-  .message {
-    display: none;
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    max-width: 450px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    font-family: 'Great Vibes', cursive;
-    color: #7b1332;
-    font-size: 1.7rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    animation: fadeIn 1s ease forwards;
-    z-index: 10;
-  }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, 30px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
-  }
+    /* Mesaj kısmı */
+    .message {
+        display: none;
+        position: fixed;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 450px;
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        color: var(--text-color-dark); 
+        font-size: 1.3rem;
+        box-shadow: 0 10px 30px var(--shadow-strong);
+        animation: fadeIn 1s ease forwards;
+        z-index: 10;
+        line-height: 1.5;
+        font-family: 'Poppins', sans-serif;
+    }
+    .message p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        margin-top: 15px;
+        font-style: italic;
+        font-weight: 700; 
+        color: var(--text-dark);
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translate(-50%, 30px); }
+        to { opacity: 1; transform: translate(-50%, 0); }
+    }
 
-  /* Kalpler */
-  .heart {
-    position: absolute;
-    top: 100%;
-    font-size: 1.2rem;
-    opacity: 0.7;
-    animation: float 7s linear forwards;
-    pointer-events: none;
-  }
+    /* Ana sayfaya dön butonu */
+    .back-btn-home {
+        display: none;
+        position: fixed;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--heart-color);
+        color: white;
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: 700;
+        z-index: 10;
+        border: none;
+        font-family: 'Poppins', sans-serif;
+    }
 
-  @keyframes float {
-    0% { transform: translateY(0) scale(1); opacity: 0.9; }
-    100% { transform: translateY(-120vh) scale(0.6); opacity: 0; }
-  }
-
-  /* Ana sayfa dön butonu */
-  .back-btn {
-    display: none;
-    position: fixed;
-    bottom: 3%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ff7faa;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: background 0.3s ease;
-    z-index: 10;
-  }
-
-  .back-btn:hover { background: #ff99be; }
-
-  /* Mobil uyum */
-  @media (max-width: 600px) {
-    h1 { font-size: 2rem; margin-bottom: 1.5rem; }
-    button { padding: 0.8rem 1.5rem; font-size: 1.1rem; }
-    .message { font-size: 1.3rem; padding: 15px; width: 90%; }
-    #yes { left: 35%; }
-    #no { left: 65%; }
-  }
-
+    /* Mobil Uyum */
+    @media (max-width: 600px) {
+        h1 { font-size: 2.5rem; }
+        .btn-area {
+            flex-direction: column;
+            gap: 20px;
+            height: auto;
+            padding-bottom: 20px;
+        }
+        button {
+            position: static; 
+            transform: none !important;
+            width: 80%;
+            max-width: 250px;
+            margin: 5px 0;
+        }
+    }
 </style>
 </head>
 <body>
 
-<h1>Askımmm minikkk esseginii affeder misinnn </h1>
+    <h1>💖 Beni affeder misin aşkımm? 💖</h1>
 
-<div class="btn-area">
-  <button id="yes">tabiki kocacıgım</button>
-  <button id="no">HAYIR </button>
-</div>
+    <div class="btn-area">
+      <button id="yes">Evet</button>
+      <button id="no">Hayır</button>
+    </div>
 
 <div class="message" id="message">
-  💌Askımmm beni affettiginn içinn cookk teşekkurr ederimm senii cookkk seviyorumm.
-   seniiş üzdügüm içinde kocamannn özürr dilerimmm iyikii varsınnn sanaa sözz veriyorumm hiiçç ayrılmıycazz
-  <br><br>— Onur 💖
+  💌 Askımmm beni affettiğin için çokk teşekkür ederimmm. Seni çokk seviyorumm.
+  Seni üzdüğüm için de kocaman özür dilerimmm, iyi ki varsınnn, sana söz veriyorumm hiç ayrılmayacağız.
+  <p>— Senin minik eşşeğin Onur 💖</p>
 </div>
 
-<button class="back-btn" id="backBtn" onclick="window.location.href='index.html'">Ana sayfaya dön 💖</button>
+<button class="back-btn-home" id="backBtn" onclick="window.location.href='index.html'">Ana sayfaya dön 💖</button>
 
 <script>
-  const yes = document.getElementById('yes');
-  const no = document.getElementById('no');
-  const msg = document.getElementById('message');
-  const backBtn = document.getElementById('backBtn');
-  const area = document.querySelector('.btn-area');
+    // JS Mantığı: Hızlı Kaçış ve Kademeli Büyüme
+  const yes = document.getElementById('yes');
+  const no = document.getElementById('no');
+  const msg = document.getElementById('message');
+  const backBtn = document.getElementById('backBtn');
+  const btnArea = document.querySelector('.btn-area');
+  
+  let yesScale = 1.0; 
+  let moving = false;
+  // YENİ: Evet butonunun minimum güvenli yarıçapı (piksel cinsinden)
+  const yesSafetyRadius = 150; 
 
-  // Hayır butonu kaçma olayı
-  let moving = false;
-  no.addEventListener('mouseenter', moveNoButton);
-  no.addEventListener('touchstart', moveNoButton);
 
-  function moveNoButton() {
-    if (moving) return;
-    moving = true;
-    const areaRect = area.getBoundingClientRect();
-    const x = Math.random() * (areaRect.width - 120);
-    const y = Math.random() * (areaRect.height - 60);
-    no.style.left = `${x}px`;
-    no.style.top = `${y}px`;
-    setTimeout(() => moving = false, 300);
-  }
+  // Sadece masaüstünde kaçma ve büyütme mantığını etkinleştir
+  if (window.innerWidth > 600) { 
+    no.addEventListener('mouseenter', moveNoButton);
+    no.addEventListener('touchstart', moveNoButton);
+  } 
 
-  // Evet tıklanınca mesaj gelsin
-  yes.addEventListener('click', () => {
-    msg.style.display = 'block';
-    backBtn.style.display = 'inline-block';
-    yes.style.background = '#27ae60';
-    yes.style.transform = 'scale(1.1)';
-  });
+  function moveNoButton() {
+    if (moving) return;
+    moving = true;
 
-  // Kalpler oluştur (optimize)
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.textContent = '💖';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (6 + Math.random() * 4) + 's';
-    heart.style.fontSize = (12 + Math.random() * 18) + 'px';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 10000);
-  }
+    const btnRect = no.getBoundingClientRect();
+    const areaRect = btnArea.getBoundingClientRect(); 
 
-  setInterval(createHeart, 600);
+    const delta = 100; 
+    const speedFactor = 3; 
+    
+    // Güvenli bölgeyi hesapla (BtnArea'nın yarısı)
+    const maxOffsetX = (areaRect.width / 2) - (btnRect.width / 2);
+    const maxOffsetY = (areaRect.height / 2) - (btnRect.height / 2);
+
+    let newX, newY, safeDistance;
+
+    do {
+        // Tamamen rastgele yeni X ve Y koordinatları üret
+        newX = (Math.random() * 2 - 1) * maxOffsetX;
+        newY = (Math.random() * 2 - 1) * maxOffsetY;
+        
+        // Evet butonunun merkezine olan uzaklığı kontrol et (0,0 noktası)
+        safeDistance = Math.sqrt(newX * newX + newY * newY);
+
+    // YENİ KONTROL: Eğer uzaklık, güvenli yarıçaptan küçükse, yeni bir pozisyon dene
+    } while (safeDistance < yesSafetyRadius); 
+
+
+    // Hayır butonunu kaçır
+    no.style.transform = `translate(${newX}px, ${newY}px)`;
+    no.style.boxShadow = '0 8px 25px rgba(244, 67, 54, 0.9)'; 
+    
+    // EVET BUTONUNU BÜYÜTME
+    yesScale += 0.05; 
+    yes.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
+    yes.style.boxShadow = `0 0 20px rgba(76, 175, 80, ${yesScale * 0.5})`;
+
+    setTimeout(() => {
+        moving = false;
+        no.style.boxShadow = '0 4px 10px var(--shadow-light)';
+    }, 200);  
+  }
+
+  // Evet tıklanınca mesaj gelsin
+  yes.addEventListener('click', () => {
+    msg.style.display = 'block';
+    backBtn.style.display = 'inline-block';
+    yes.style.backgroundColor = '#66BB6A';
+    // Final transform'u hesapla
+    const finalTransform = window.innerWidth > 600 ? `translate(-50%, -50%) scale(${yesScale * 1.1})` : `scale(1.05)`;
+    yes.style.transform = finalTransform; 
+    yes.style.boxShadow = '0 8px 20px rgba(76, 175, 80, 0.9)';
+    no.style.display = 'none';
+    btnArea.style.display = 'none'; 
+  });
 </script>
 
 </body>
